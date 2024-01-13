@@ -41,8 +41,8 @@
 <details>
   <summary>Register</summary>
   
-  - [ ] Register has these inputs: username, password, email name, date of birth, and phone number.
-  - [ ] Check input empty or full spaces (use trim).
+  - [x] Register has these inputs: username, password, email name, date of birth, and phone number.
+  - [x] Check input empty or full spaces (use trim).
   - [ ] Check username exists -> if yes, send error.
   - [ ] Check password is equal to confirmed password.
   - [ ] Check email format (abc123@gmail.com)
