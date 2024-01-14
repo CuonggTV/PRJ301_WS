@@ -29,6 +29,7 @@ CREATE TABLE [Sevice] (
   [details] nvarchar(1000),
   [weightMinimum] float,
   [weightMaximun] float,
+  [isDeleted] bit,
   PRIMARY KEY ([id]),
   CONSTRAINT [FK_Sevice.speciesId]
     FOREIGN KEY ([speciesId])
