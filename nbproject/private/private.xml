@@ -3,16 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/Workplace/FPT%20Education/SPR24/PRJ301/PRJ301_Workshop/web/META-INF/context.xml</file>
-            <file>file:/E:/Workplace/FPT%20Education/SPR24/PRJ301/PRJ301_Workshop/src/java/dto/ValidateError.java</file>
-            <file>file:/E:/Workplace/FPT%20Education/SPR24/PRJ301/PRJ301_Workshop/src/java/dao/CustomerDao.java</file>
-            <file>file:/E:/Workplace/FPT%20Education/SPR24/PRJ301/PRJ301_Workshop/web/Home.jsp</file>
-            <file>file:/E:/Workplace/FPT%20Education/SPR24/PRJ301/PRJ301_Workshop/web/WEB-INF/web.xml</file>
-            <file>file:/E:/Workplace/FPT%20Education/SPR24/PRJ301/PRJ301_Workshop/web/index.html</file>
-            <file>file:/E:/Workplace/FPT%20Education/SPR24/PRJ301/PRJ301_Workshop/src/java/validation/RegisterValidtion.java</file>
-            <file>file:/E:/Workplace/FPT%20Education/SPR24/PRJ301/PRJ301_Workshop/src/java/controller/RegisterController.java</file>
-            <file>file:/E:/Workplace/FPT%20Education/SPR24/PRJ301/PRJ301_Workshop/src/java/validation/ValiditionBase.java</file>
-            <file>file:/E:/Workplace/FPT%20Education/SPR24/PRJ301/PRJ301_Workshop/web/Register.jsp</file>
+            <file>file:/C:/Workplace/CODE/PRJ301_WS/src/java/utils/TestUtils.java</file>
+            <file>file:/C:/Workplace/CODE/PRJ301_WS/src/java/utils/DatabaseUtils.java</file>
         </group>
     </open-files>
 </project-private>
