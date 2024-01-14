@@ -17,7 +17,7 @@ public class DatabaseUtils {
         Connection cn=null;
         String IP="localhost";
 
-        String instanceName="CUONGTV\\MSSQLSERVER01";
+        String instanceName="";
 
         String port="1433";
         String uid="sa";
