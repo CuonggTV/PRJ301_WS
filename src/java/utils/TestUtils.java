@@ -10,5 +10,5 @@ package utils;
  * @author PC
  */
 public class TestUtils {
-    
+    private String test;
 }
