@@ -84,10 +84,21 @@
     
 
     <label for="password">Password:</label>
-    <input type="password" id="password" name="password" value="${requestScope.oldInput.password}">
+    <input type="password" id="password" name="password" >
     <c:if test="${requestScope.errors != null}">
         <c:forEach items="${requestScope.errors}" var="error">
             <c:if test="${error.name eq 'password'}">
+                <p style="color: red;">${error.message}</p>
+            </c:if>
+        </c:forEach>
+    </c:if>
+                
+                
+    <label for="confirmPassword">Confirm Password:</label>
+    <input type="password" id="password" name="confirmPassword" >
+    <c:if test="${requestScope.errors != null}">
+        <c:forEach items="${requestScope.errors}" var="error">
+            <c:if test="${error.name eq 'confirmPassword'}">
                 <p style="color: red;">${error.message}</p>
             </c:if>
         </c:forEach>

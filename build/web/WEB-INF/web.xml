@@ -4,10 +4,28 @@
         <servlet-name>RegisterController</servlet-name>
         <servlet-class>controller.Customer.RegisterController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CustomerHome</servlet-name>
+        <servlet-class>controller.Customer.CustomerHomeController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminHome</servlet-name>
+        <servlet-class>controller.Admin.AdminHomeController</servlet-class>
+    </servlet>
+    
     <servlet-mapping>
         <servlet-name>RegisterController</servlet-name>
-        <url-pattern>/Register</url-pattern>
+        <url-pattern>/register</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CustomerHome</servlet-name>
+        <url-pattern>/home</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminHome</servlet-name>
+        <url-pattern>/admin-home</url-pattern>
+    </servlet-mapping>
+    
     <session-config>
         <session-timeout>
             30
