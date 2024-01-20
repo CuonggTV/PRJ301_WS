@@ -43,9 +43,9 @@
   
   - [x] Register has these inputs: username, password, email name, date of birth, and phone number.
   - [x] Check input empty or full spaces (use trim).
-  - [ ] Check username exists -> if yes, send error.
-  - [ ] Check password is equal to confirmed password.
+  - [x] Check username exists -> if yes, send error.
+  - [x] Check password is equal to confirmed password.
   - [ ] Check email format (abc123@gmail.com)
-  - [ ] Check dob -> if pass 18 years from now, send error.
-  - [ ] Check phone number (10 digits only)
+  - [x] Check dob -> if pass 18 years from now, send error.
+  - [x] Check phone number (10 digits only)
 </details>
