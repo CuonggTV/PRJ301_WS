@@ -5,9 +5,11 @@
  */
 package validation;
 
+import dao.CustomerDao;
 import dto.ValidateError;
 import java.util.ArrayList;
 import java.util.List;
+import utils.FormatUtils;
 
 /**
  *
@@ -74,8 +76,11 @@ public class RegisterValidtion implements ValiditionBase{
         List<ValidateError> errors = new ArrayList<>();
         
 //        USERNAME
-        if(username == null || username.length() == 0){
+        if(username == null || username.length() == 0) {
             errors.add(new ValidateError("username", "Username cannot be empty!"));
+        }
+        else if(CustomerDao.checkUsernameExist(username)){
+            errors.add(new ValidateError("username", "Username has been registed!"));
         }
         
 //        PASSWORD
@@ -93,15 +98,28 @@ public class RegisterValidtion implements ValiditionBase{
         if(email == null || email.length() == 0){
             errors.add(new ValidateError("email", "Email cannot be empty!"));
         }
+        else if (!FormatUtils.checkEmailFormat(email)){
+            errors.add(new ValidateError("email", "Wrong email format!"));
+        }
+        else if (CustomerDao.checkEmailExist(email)){
+            errors.add(new ValidateError("email", "Email has been registed!!"));
+        }
         
 //        DOB
         if(dob == null || dob.length() == 0){
             errors.add(new ValidateError("dob", "Date of birth cannot be empty!"));
         }
+        else if(!FormatUtils.checkDobFormat(dob)){
+            errors.add(new ValidateError("dob", "You must be 16 years old or older to use our services!"));
+        }
+        
         
 //        PHONENUMBER
         if(phoneNumber == null || phoneNumber.length() == 0){
             errors.add(new ValidateError("phoneNumber", "Phone number cannot be empty!"));
+        }
+        else if(!FormatUtils.checkPhoneFormat(phoneNumber)){
+             errors.add(new ValidateError("phoneNumber", "Phone number must have ten numbers!"));
         }
         
         return errors;

@@ -9,8 +9,7 @@ import dao.CustomerDao;
 import dto.Customer;
 import dto.ValidateError;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
+
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -33,16 +32,14 @@ public class RegisterController extends HttpServlet {
         rv.setEmail(req.getParameter("email"));
         rv.setDob(req.getParameter("dob"));
         rv.setPhoneNumber(req.getParameter("phoneNumber"));
+
         List<ValidateError> errors = rv.validate();
-        
-        for(ValidateError error: errors){
-            System.out.println(error.getMessage());
-        }
-       
+
         if(errors.isEmpty()){
             System.out.println("Register success");
         }
         else{
+            req.setAttribute("oldInput", rv);
             req.setAttribute("errors", errors);
             req.getRequestDispatcher("Register.jsp").forward(req, resp);
 

@@ -72,31 +72,31 @@
     <div class="form-header">Register</div>
 
     <label for="username">Username:</label>
-    <input type="text" id="username" name="username" >
-    <c:if test="${requestScope.errors != null}">
-        <c:forEach items="${requestScope.errors}" var="error">
-            <c:if test="${error.name eq 'username'}">
-                <p style="color: red;">${error.message}</p>
-            </c:if>
-        </c:forEach>
-        
-    </c:if>
+    <input type="text" id="username" name="username" value="${requestScope.oldInput.username}">
+      <c:if test="${requestScope.errors != null}">
+          <c:forEach items="${requestScope.errors}" var="error" >
+              <c:if test="${error.name eq 'username'}">
+                  <p style="color: red;">${error.message}</p>
+              </c:if>
+          </c:forEach>
+      </c:if>
+
+    
 
     <label for="password">Password:</label>
-    <input type="password" id="password" name="password" >
+    <input type="password" id="password" name="password" value="${requestScope.oldInput.password}">
     <c:if test="${requestScope.errors != null}">
         <c:forEach items="${requestScope.errors}" var="error">
             <c:if test="${error.name eq 'password'}">
                 <p style="color: red;">${error.message}</p>
             </c:if>
         </c:forEach>
-        
     </c:if>
 
     <label for="name">Full Name:</label>
-    <input type="text" id="name" name="name" >
+    <input type="text" id="name" name="name" value="${requestScope.oldInput.name}" >
     <c:if test="${requestScope.errors != null}">
-        <c:forEach items="${requestScope.errors}" var="error">
+        <c:forEach items="${requestScope.errors}" var="error" >
             <c:if test="${error.name eq 'name'}">
                 <p style="color: red;">${error.message}</p>
             </c:if>
@@ -105,7 +105,7 @@
     </c:if>
 
     <label for="email">Email:</label>
-    <input type="email" id="email" name="email" >
+    <input type="email" id="email" name="email" value="${requestScope.oldInput.email}" >
     <c:if test="${requestScope.errors != null}">
         <c:forEach items="${requestScope.errors}" var="error">
             <c:if test="${error.name eq 'email'}">
@@ -116,7 +116,7 @@
     </c:if>
 
     <label for="dob">Date of Birth:</label>
-    <input type="date" id="dob" name="dob" >
+    <input type="date" id="dob" name="dob" value="${requestScope.oldInput.dob}">
     <c:if test="${requestScope.errors != null}">
         <c:forEach items="${requestScope.errors}" var="error">
             <c:if test="${error.name eq 'dob'}">
@@ -126,7 +126,7 @@
     </c:if>
 
     <label for="phoneNumber">Phone Number:</label>
-    <input type="tel" id="phoneNumber" name="phoneNumber" pattern="[0-9]{10}" >
+    <input type="tel" id="phoneNumber" name="phoneNumber" value="${requestScope.oldInput.phoneNumber}">
     <c:if test="${requestScope.errors != null}">
         <c:forEach items="${requestScope.errors}" var="error">
             <c:if test="${error.name eq 'phoneNumber'}">
