@@ -4,50 +4,78 @@ GO
 USE PRJ301_WS
 GO
 
-CREATE TABLE [Customer] (
-  [id] int IDENTITY(1, 1),
-  [username] varchar(50),
-  [password] varchar(50),
-  [name] nvarchar(50),
-  [email] varchar(50),
-  [dob] date,
-  [phoneNumber] char(10),
-  [isBlocked] bit,
+CREATE TABLE [Feedback] (
+  [id] int,
+  [bookingId] int,
+  [details] nvarchar(1000),
+  [timeCreate] datetime,
   PRIMARY KEY ([id])
 );
 
-CREATE TABLE [Species] (
-  [id] int IDENTITY(1, 1),
-  [name] nvarchar(50),
-  PRIMARY KEY ([id])
-);
-
-CREATE TABLE [Sevice] (
-  [id] int IDENTITY(1, 1),
-  [speciesId] int,
+CREATE TABLE [Service] (
+  [id] int,
   [name] nvarchar(100),
   [details] nvarchar(1000),
   [weightMinimum] float,
   [weightMaximun] float,
-  [isDeleted] bit,
-  PRIMARY KEY ([id]),
-  CONSTRAINT [FK_Sevice.speciesId]
-    FOREIGN KEY ([speciesId])
-      REFERENCES [Species]([id])
+  [price] float,
+  [isDisable] bit,
+  PRIMARY KEY ([id])
+);
+
+CREATE TABLE [RoomType] (
+  [id] int,
+  [name] nvarchar(50),
+  [price] float,
+  PRIMARY KEY ([id])
 );
 
 CREATE TABLE [Room] (
-  [id] int IDENTITY(1, 1),
+  [id] int,
+  [roomTypeId] int,
+  [name] nvarchar(50),
+  [height] float,
+  [width] float,
+  PRIMARY KEY ([id]),
+  CONSTRAINT [FK_Room.roomTypeId]
+    FOREIGN KEY ([roomTypeId])
+      REFERENCES [RoomType]([id])
+);
+
+CREATE TABLE [Species] (
+  [id] int,
   [name] nvarchar(50),
   PRIMARY KEY ([id])
 );
 
+CREATE TABLE [Customer] (
+  [id] int,
+  [name] nvarchar(50),
+  [email] varchar(50),
+  [phoneNumber] char(10),
+  PRIMARY KEY ([id])
+);
+
+CREATE TABLE [Account] (
+  [id] int,
+  [customerId] int,
+  [username] varchar(50),
+  [password] varchar(50),
+  [isBlocked] bit,
+  PRIMARY KEY ([id]),
+  CONSTRAINT [FK_Account.customerId]
+    FOREIGN KEY ([customerId])
+      REFERENCES [Customer]([id])
+);
+
 CREATE TABLE [Pet] (
-  [id] int IDENTITY(1, 1),
+  [id] int,
   [ownerId] int,
   [speciesId] int,
   [name] nvarchar(50),
   [weight] float,
+  [height] float,
+  [width] float,
   [details] nvarchar(1000),
   [picture] varchar(1000),
   PRIMARY KEY ([id]),
@@ -56,11 +84,11 @@ CREATE TABLE [Pet] (
       REFERENCES [Species]([id]),
   CONSTRAINT [FK_Pet.ownerId]
     FOREIGN KEY ([ownerId])
-      REFERENCES [Customer]([id])
+      REFERENCES [Account]([id])
 );
 
 CREATE TABLE [Booking] (
-  [id] int IDENTITY(1, 1),
+  [id] int,
   [petId] int,
   [serviceId] int,
   [roomId] int,
@@ -71,7 +99,7 @@ CREATE TABLE [Booking] (
   PRIMARY KEY ([id]),
   CONSTRAINT [FK_Booking.serviceId]
     FOREIGN KEY ([serviceId])
-      REFERENCES [Sevice]([id]),
+      REFERENCES [Service]([id]),
   CONSTRAINT [FK_Booking.roomId]
     FOREIGN KEY ([roomId])
       REFERENCES [Room]([id]),
@@ -80,18 +108,10 @@ CREATE TABLE [Booking] (
       REFERENCES [Pet]([id])
 );
 
-CREATE TABLE [Feedback] (
-  [id] int IDENTITY(1, 1),
-  [customerId] int,
-  [bookingId] int,
+CREATE TABLE [Reply] (
+  [feedbackId] int,
   [details] nvarchar(1000),
-  [timeCreate] datetime,
-  PRIMARY KEY ([id]),
-  CONSTRAINT [FK_Feedback.customerId]
-    FOREIGN KEY ([customerId])
-      REFERENCES [Customer]([id]),
-  CONSTRAINT [FK_Feedback.bookingId]
-    FOREIGN KEY ([bookingId])
-      REFERENCES [Booking]([id])
+  [timeCreate] datetime
 );
+
 

@@ -90,7 +90,7 @@ public class RegisterValidtion implements ValiditionBase{
             errors.add(new ValidateError("username", "Username cannot be empty!"));
         }
         else if(username.length() >50){
-             errors.add(new ValidateError("username", "Username only has 50 letters!"));
+             errors.add(new ValidateError("username", "Username can only have 50 letters!"));
 
         }
         else if(CustomerDao.checkUsernameExist(username)){
@@ -102,6 +102,9 @@ public class RegisterValidtion implements ValiditionBase{
         if(password == null || password.length() == 0){
             errors.add(new ValidateError("password", "Password cannot be empty!"));
         }
+        else if(password.length() > 50){
+            errors.add(new ValidateError("password", "Password can only have 50 letters!"));
+        }
 //        CONFIRM PASSWORD
          if(confirmPassword == null || confirmPassword.length() == 0){
             errors.add(new ValidateError("confirmPassword", "Confirm password cannot be empty!"));
@@ -109,10 +112,16 @@ public class RegisterValidtion implements ValiditionBase{
         else if(!confirmPassword.equals(password)){
             errors.add(new ValidateError("confirmPassword", "Confirm password must equal to password!"));
         }
+        else if(confirmPassword.length() > 50){
+            errors.add(new ValidateError("confirmPassword", "Confirm password can only have 50 letters!"));
+        }
         
 //        NAME
         if(name == null || name.length() == 0){
             errors.add(new ValidateError("name", "Name cannot be empty!"));
+        }
+        else if( name.length() > 50 ){
+            errors.add(new ValidateError("name", "Name can only have 50 letters!"));
         }
         
 //        EMAIL
@@ -125,7 +134,9 @@ public class RegisterValidtion implements ValiditionBase{
         else if (CustomerDao.checkEmailExist(email)){
             errors.add(new ValidateError("email", "Email has been registed!!"));
         }
-        
+        else if( email.length() > 50 ){
+            errors.add(new ValidateError("email", "Email can only have 50 letters!"));
+        }
 //        DOB
         if(dob == null || dob.length() == 0){
             errors.add(new ValidateError("dob", "Date of birth cannot be empty!"));
