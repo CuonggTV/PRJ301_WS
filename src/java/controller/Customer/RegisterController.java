@@ -5,6 +5,7 @@
  */
 package controller.Customer;
 
+import dao.CustomerDao;
 import dto.ValidateError;
 import java.io.IOException;
 
@@ -36,7 +37,6 @@ public class RegisterController extends HttpServlet {
         List<ValidateError> errors = rv.validate();
 
         if(errors.isEmpty()){
-            
             resp.sendRedirect("home");
         }
         else{
