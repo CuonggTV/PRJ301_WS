@@ -22,7 +22,7 @@ CREATE TABLE [Species] (
   PRIMARY KEY ([id])
 );
 
-CREATE TABLE [Sevice] (
+CREATE TABLE [Service] (
   [id] int IDENTITY(1, 1),
   [speciesId] int,
   [name] nvarchar(100),
