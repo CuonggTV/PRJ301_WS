@@ -18,6 +18,8 @@ import utils.FormatUtils;
 public class RegisterValidtion implements ValiditionBase{
     private String username;
     private String password;
+    private String confirmPassword;
+
     private String name;
     private String email;
     private String dob;
@@ -37,6 +39,14 @@ public class RegisterValidtion implements ValiditionBase{
 
     public void setPassword(String password) {
         this.password = password.trim();
+    }
+
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
     }
 
     public String getName() {
@@ -79,6 +89,10 @@ public class RegisterValidtion implements ValiditionBase{
         if(username == null || username.length() == 0) {
             errors.add(new ValidateError("username", "Username cannot be empty!"));
         }
+        else if(username.length() >50){
+             errors.add(new ValidateError("username", "Username can only have 50 letters!"));
+
+        }
         else if(CustomerDao.checkUsernameExist(username)){
             errors.add(new ValidateError("username", "Username has been registed!"));
         }
@@ -88,10 +102,26 @@ public class RegisterValidtion implements ValiditionBase{
         if(password == null || password.length() == 0){
             errors.add(new ValidateError("password", "Password cannot be empty!"));
         }
+        else if(password.length() > 50){
+            errors.add(new ValidateError("password", "Password can only have 50 letters!"));
+        }
+//        CONFIRM PASSWORD
+         if(confirmPassword == null || confirmPassword.length() == 0){
+            errors.add(new ValidateError("confirmPassword", "Confirm password cannot be empty!"));
+        }
+        else if(!confirmPassword.equals(password)){
+            errors.add(new ValidateError("confirmPassword", "Confirm password must equal to password!"));
+        }
+        else if(confirmPassword.length() > 50){
+            errors.add(new ValidateError("confirmPassword", "Confirm password can only have 50 letters!"));
+        }
         
 //        NAME
         if(name == null || name.length() == 0){
             errors.add(new ValidateError("name", "Name cannot be empty!"));
+        }
+        else if( name.length() > 50 ){
+            errors.add(new ValidateError("name", "Name can only have 50 letters!"));
         }
         
 //        EMAIL
@@ -104,7 +134,9 @@ public class RegisterValidtion implements ValiditionBase{
         else if (CustomerDao.checkEmailExist(email)){
             errors.add(new ValidateError("email", "Email has been registed!!"));
         }
-        
+        else if( email.length() > 50 ){
+            errors.add(new ValidateError("email", "Email can only have 50 letters!"));
+        }
 //        DOB
         if(dob == null || dob.length() == 0){
             errors.add(new ValidateError("dob", "Date of birth cannot be empty!"));

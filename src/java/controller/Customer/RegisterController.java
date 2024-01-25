@@ -6,7 +6,6 @@
 package controller.Customer;
 
 import dao.CustomerDao;
-import dto.Customer;
 import dto.ValidateError;
 import java.io.IOException;
 
@@ -28,6 +27,8 @@ public class RegisterController extends HttpServlet {
         RegisterValidtion rv = new RegisterValidtion();
         rv.setUsername(req.getParameter("username"));
         rv.setPassword(req.getParameter("password"));
+        rv.setConfirmPassword(req.getParameter("confirmPassword"));
+
         rv.setName(req.getParameter("name"));
         rv.setEmail(req.getParameter("email"));
         rv.setDob(req.getParameter("dob"));
@@ -36,7 +37,7 @@ public class RegisterController extends HttpServlet {
         List<ValidateError> errors = rv.validate();
 
         if(errors.isEmpty()){
-            System.out.println("Register success");
+            resp.sendRedirect("home");
         }
         else{
             req.setAttribute("oldInput", rv);

@@ -17,7 +17,8 @@ public class FormatUtils {
     }
     
     public static boolean checkEmailFormat(String email){
-        return email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,}$");
+        //return email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,}$");
+        return true;
     }
     
     public static boolean checkDobFormat(String dob){
