@@ -5,7 +5,7 @@ USE PRJ301_WS
 GO
 
 CREATE TABLE [Feedback] (
-  [id] int,
+  [id] INT IDENTITY(1, 1),
   [bookingId] int,
   [details] nvarchar(1000),
   [timeCreate] datetime,
@@ -20,7 +20,6 @@ CREATE TABLE [Species] (
 
 CREATE TABLE [Service] (
   [id] int IDENTITY(1, 1),
-  [speciesId] int,
   [name] nvarchar(100),
   [details] nvarchar(1000),
   [weightMinimum] float,
@@ -31,14 +30,14 @@ CREATE TABLE [Service] (
 );
 
 CREATE TABLE [RoomType] (
-  [id] int,
+  [id] INT IDENTITY(1, 1),
   [name] nvarchar(50),
   [price] float,
   PRIMARY KEY ([id])
 );
 
 CREATE TABLE [Room] (
-  [id] int,
+  [id] INT IDENTITY(1, 1),
   [roomTypeId] int,
   [name] nvarchar(50),
   [height] float,
@@ -50,13 +49,13 @@ CREATE TABLE [Room] (
 );
 
 CREATE TABLE [Species] (
-  [id] int,
+  [id] INT IDENTITY(1, 1),
   [name] nvarchar(50),
   PRIMARY KEY ([id])
 );
 
 CREATE TABLE [Customer] (
-  [id] int,
+  [id] INT IDENTITY(1, 1),
   [name] nvarchar(50),
   [email] varchar(50),
   [phoneNumber] char(10),
@@ -64,7 +63,7 @@ CREATE TABLE [Customer] (
 );
 
 CREATE TABLE [Account] (
-  [id] int,
+  [id] INT IDENTITY(1, 1),
   [customerId] int,
   [username] varchar(50),
   [password] varchar(50),
@@ -76,7 +75,7 @@ CREATE TABLE [Account] (
 );
 
 CREATE TABLE [Pet] (
-  [id] int,
+  [id] INT IDENTITY(1, 1),
   [ownerId] int,
   [speciesId] int,
   [name] nvarchar(50),
@@ -95,7 +94,7 @@ CREATE TABLE [Pet] (
 );
 
 CREATE TABLE [Booking] (
-  [id] int,
+  [id] INT IDENTITY(1, 1),
   [petId] int,
   [serviceId] int,
   [roomId] int,
@@ -116,7 +115,7 @@ CREATE TABLE [Booking] (
 );
 
 CREATE TABLE [Reply] (
-  [feedbackId] int,
+  [feedbackId] INT IDENTITY(1, 1),
   [details] nvarchar(1000),
   [timeCreate] datetime
 );

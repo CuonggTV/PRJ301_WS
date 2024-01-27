@@ -1,0 +1,128 @@
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url('background-image.jpg');
+            /* Replace with your background image */
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .button-cell {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        button {
+            padding: 8px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .edit-button {
+            background-color: #4CAF50;
+            color: white;
+            transition: background-color 0.3s;
+        }
+
+        .disable-button {
+            background-color: #f44336;
+            color: white;
+            transition: background-color 0.3s;
+        }
+
+        .edit-button:hover,
+        .disable-button:hover {
+            background-color: #45a049;
+        }
+
+        .details-cell {
+            max-height: 150px;
+            overflow-y: auto;
+        }
+
+        .edit-form {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            backdrop-filter: blur(10px);
+            /* Add blur effect to the background */
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .form-container {
+            width: 50%;
+            background-color: rgba(255, 255, 255, 0.9);
+            /* Add a semi-transparent white background */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            /* Add a subtle shadow */
+        }
+
+        .form-container input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .form-container textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .form-container button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 12px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .form-container .close-button {
+            background-color: #f44336;
+        }
